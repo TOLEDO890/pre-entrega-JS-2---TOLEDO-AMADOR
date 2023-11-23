@@ -1,4 +1,4 @@
-alert ("conectado");
+console.log("conectado");
 
 class pelicula {
     constructor(titulo, genero, anioPublicacion ,duracion) {
