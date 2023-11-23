@@ -48,48 +48,62 @@ let peliculas = [pelicula1, pelicula2, pelicula3, pelicula4, pelicula5, pelicula
 console.log (peliculas);
 console.log (series);
 
-let opcion = prompt("¿Quieres ver 'series' o 'peliculas'?");
 
-opcion = opcion.toLowerCase();
+while (true) {
+    opcion = prompt("Ingrese 'series' o 'peliculas':");
+
+    if (opcion === "series" || opcion === "peliculas") {
+        break; // Salir del bucle si se ingresa una opción válida
+    } else {
+        alert("Opción no válida. Por favor, ingresa 'series' o 'peliculas'.");
+    }
+}
 
 if (opcion === "series") {
-
+    
     alert("Aquí están las series:\n" + series.map(serie => serie.titulo).join("\n"));
 
-    let opcionSerie = prompt("Elige una serie por su título:\n" + series.map(serie => serie.titulo).join("\n"));
+    let opcionSerie;
 
-    let serieSeleccionada = series.find(serie => serie.titulo === opcionSerie);
+    
+    while (true) {
+        opcionSerie = prompt("Elige una serie por su título:\n" + series.map(serie => serie.titulo).join("\n"));
 
-    if (serieSeleccionada) {
-        alert("Aquí está la serie seleccionada:\n" + 
-              "Título: " + serieSeleccionada.titulo + "\n" +
-              "Género: " + serieSeleccionada.genero + "\n" +
-              "Año de Estreno: " + serieSeleccionada.anioPublicacion
-             
-              );
-    } else {
-        alert("Serie no encontrada. Por favor, elige una serie válida.");
+        let serieSeleccionada = series.find(serie => serie.titulo === opcionSerie);
+
+        if (serieSeleccionada) {
+            alert("Aquí está la serie seleccionada:\n" + 
+                "Título: " + serieSeleccionada.titulo + "\n" +
+                "Género: " + serieSeleccionada.genero + "\n" +
+                "Año de Estreno: " + serieSeleccionada.anioPublicacion);
+            break; 
+        } else {
+            alert("Serie no encontrada. Por favor, elige una serie válida.");
+        }
     }
-
 } else if (opcion === "peliculas") {
 
     alert("Aquí están las películas:\n" + peliculas.map(pelicula => pelicula.titulo).join("\n"));
 
-    let opcionPelicula = prompt("Elige una película por su título:\n" + peliculas.map(pelicula => pelicula.titulo).join("\n"));
+    let opcionPelicula;
 
-    let peliculaSeleccionada = peliculas.find(pelicula => pelicula.titulo === opcionPelicula);
+    while (true) {
+        opcionPelicula = prompt("Elige una película por su título:\n" + peliculas.map(pelicula => pelicula.titulo).join("\n"));
 
-    if (peliculaSeleccionada) {
-        alert("Aquí está la película seleccionada:\n" + 
-              "Título: " + peliculaSeleccionada.titulo + "\n" +
-              "Género: " + peliculaSeleccionada.genero + "\n" +
-              "Año de Estreno: " + peliculaSeleccionada.anioPublicacion);
-    } else {
-        alert("Pelicula no encontrada. Por favor, elige una película válida.");
+        let peliculaSeleccionada = peliculas.find(pelicula => pelicula.titulo === opcionPelicula);
+
+        if (peliculaSeleccionada) {
+            alert("Aquí está la película seleccionada:\n" + 
+                "Título: " + peliculaSeleccionada.titulo + "\n" +
+                "Género: " + peliculaSeleccionada.genero + "\n" +
+                "Año de Estreno: " + peliculaSeleccionada.anioPublicacion);
+            break; 
+        } else {
+            alert("Pelicula no encontrada. Por favor, elige una película válida.");
+        }
     }
-} else {
-    alert("Opción no válida. Por favor, ingresa 'series' o 'peliculas'.");
 }
+
 let comedia = series.concat(peliculas).filter(item => item.genero === "comedia");
 
 let accion = series.concat(peliculas).filter(item => item.genero ==="accion")
