@@ -1,20 +1,18 @@
 console.log("conectado");
 
 class pelicula {
-    constructor(titulo, genero, anioPublicacion ,duracion) {
+    constructor(titulo, genero, anioPublicacion ,) {
         this.titulo = titulo;
         this.genero = genero;
         this.anioPublicacion = anioPublicacion;
-        this.duracion= duracion;
     }
 }
 
 class serie {
-    constructor(titulo,genero, anioPublicacion , duracion) {
+    constructor(titulo,genero, anioPublicacion , ) {
         this.titulo = titulo;
         this.genero = genero;
-        this.anioPublicacion = anioPublicacion;
-        this.duracion= duracion;
+        this.anioPublicacion = anioPublicacion;    
     }
 }
 
